@@ -11,7 +11,11 @@ class Storage {
     }
     removeItem(itemToRemove) {
         const index = this.#items.indexOf(itemToRemove);
-        this.#items.splice(index, 1);
+        if (index !== -1) {
+      this.#items.splice(index, 1);
+    } else {
+      console.error(`Item "${itemToRemove}" not found.`);
+    }
     }
 }
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
